@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs") %>
+<h1 class='hey'>Hey! Go ahead, type in your URL</h1>
+<div class="container">
+  <form action="/Shrink" , method="post">
+    <input
+      type="url"
+      name="FullURL"
+      id="FullURL"
+      placeholder="Enter your URL"
+    />
+    <button type="submit" style="margin-left: 10px">Shrink it!</button>
+  </form>
+  <div class="table-container" style="
+    height: 30vh;
+" >
+    <table class="table table-striped table-responsive"  >
+      <thead>
+        
+        <tr>
+          <th>Full URL</th>
+          <th>TinyURL</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Shrinks.forEach(Shrink => { %>
+          <tr>
+          <td style="
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;">
+            <a href="<%=Shrink.full%>"><%=Shrink.full%></a>
+          </td>
+          <td><a href="<%=Shrink.tiny%>"><%=Shrink.tiny%></a></td>
+          <td><%=Shrink.clicks%></td>
+        </tr>
+          <%})%>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</main>
+<%- include("partials/footer.ejs") %>

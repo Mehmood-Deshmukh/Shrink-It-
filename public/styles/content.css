@@ -1,0 +1,104 @@
+html,
+body {
+  height: 100%;
+  overflow:hidden;
+}
+
+.table-container{
+  overflow-y: scroll; /* Enable vertical scrollbar */
+}
+::-webkit-scrollbar {
+/*     width: 1vw; */
+/*     background: #3586ff; /* make scrollbar transparent */ */
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: stretch;
+}
+.container{
+      width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+header,
+footer {
+  flex: 0 0 auto;
+}
+
+main {
+  text-align: center;
+  padding: 5vmin;
+  flex: 1 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  color: grey;
+}
+
+form {
+  /* margin-top: 50px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+
+form > input {
+  color: grey;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  height: 60% ;
+  background-color: transparent;
+  border: 2px solid #3586ff;
+  transition: all 0.3s; 
+  width: 30%;
+  box-sizing: border-box;
+  outline: 0;
+  padding: 1%;;
+}
+.feedback-input:focus {
+  border: 2px solid #3586ff;
+}
+
+  [type="submit"] {
+    width: 20%;
+    height: 60%;
+    background: #3586ff;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+   
+    transition: all 0.3s;
+    font-weight: 400;
+  }
+  [type="submit"]:hover {
+    background: #ffffff;
+    color: #3586ff;
+    border: 2px solid #3586ff;
+  }
+
+  @media (max-width:600px) {
+    [type="submit"] {
+      font-size: 16px;
+      width: 25%;
+    }
+    form > input {
+      width: 50%;
+    }
+}
+  
