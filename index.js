@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const shortId = require('shortid')
 require('dotenv').config();
 const path = require("path")
 const app = express();
@@ -27,6 +26,14 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 
+generateShortId = () => {
+  const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
 
 const linkSchema = new mongoose.Schema({
   full: {
@@ -36,7 +43,7 @@ const linkSchema = new mongoose.Schema({
   tiny: {
     type: String,
     required: true,
-    default: () => shortId.generate(),
+    default: () => generateShortId(),
   },
   clicks: {
     type: Number,
